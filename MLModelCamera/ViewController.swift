@@ -142,7 +142,8 @@ class ViewController: UIViewController {
     }
 
     @available(iOS 12.0, *)
-    private func processObjectDetectionObservations(_ results: [VNRecognizedObjectObservation]) {
+    private func processObjectDetectionObservations(_ results: //モデルから検出結果を受け取り、描画を行う
+        [VNRecognizedObjectObservation]) {
         bbView.observations = results
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -178,8 +179,11 @@ class ViewController: UIViewController {
         cropAndScaleOption = VNImageCropAndScaleOption(rawValue: UInt(selectedIndex))!
     }
     
+    
+    
     // MARK: - Actions
     
+    //Changeのボタンが押されると行われる描画、どこでChangeの文字を定義しているのか不明
     @IBAction func modelBtnTapped(_ sender: UIButton) {
         showActionSheet()
     }
@@ -187,6 +191,23 @@ class ViewController: UIViewController {
     @IBAction func cropAndScaleOptionChanged(_ sender: UISegmentedControl) {
         updateCropAndScaleOption()
     }
+    
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0.0);
+//        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
+//        let screenShotImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!  //スリーンショットがUIImage型で取得できる
+//        UIGraphicsEndImageContext()
+//        let imageView = UIImageView(image:screenShotImage)
+//        self.view.addSubview(imageView)
+//
+//     }
+//    //タッチ操作をした際の処理
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let imageView = UIImageView(image:screenShotImage)
+//        imageView.removeFromSuperview()
+//    }
 }
 
 extension ViewController: UIPopoverPresentationControllerDelegate {

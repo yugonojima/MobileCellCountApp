@@ -25,6 +25,9 @@ class BoundingBoxView: UIView {
         subviews.forEach({ $0.removeFromSuperview() })
 
         let context = UIGraphicsGetCurrentContext()!
+        let screenSizeHeight = UIScreen.main.bounds.height
+        let screenSizeWidth = UIScreen.main.bounds.width
+        let counts = observations.count//バウンディングボックスの総数を定義
         
         for i in 0..<observations.count {
             let observation = observations[i]
@@ -36,13 +39,20 @@ class BoundingBoxView: UIView {
 
             let rect = drawBoundingBox(context: context, observation: observation, color: color)
             
-            if #available(iOS 12.0, *), let recognizedObjectObservation = observation as? VNRecognizedObjectObservation {
-                addLabel(on: rect, observation: recognizedObjectObservation, color: color)
-            }
+//            if #available(iOS 12.0, *), let recognizedObjectObservation = observation as? VNRecognizedObjectObservation {
+//                addLabel(on: rect, observation: recognizedObjectObservation, color: color)
+//            }
+    
         }
+        //バウンディングボックス数の描画
+        String(counts).draw(at: CGPoint(x: screenSizeWidth-80, y: screenSizeHeight-80), withAttributes: [
+            NSAttributedString.Key.foregroundColor : UIColor(red: 0.28, green: 0.53, blue: 0.75, alpha: 1.0),
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 50),
+                    ])
     }
     
-    private func drawBoundingBox(context: CGContext, observation: VNDetectedObjectObservation, color: UIColor) -> CGRect {
+    //一つのバウンディングボックスを描画するfunction
+    private func drawBoundingBox(context: CGContext, observation:  VNDetectedObjectObservation, color: UIColor) -> CGRect {
         let convertedRect = VNImageRectForNormalizedRect(observation.boundingBox, Int(imageRect.width), Int(imageRect.height))
         let x = convertedRect.minX + imageRect.minX
         let y = (imageRect.height - convertedRect.maxY) + imageRect.minY
