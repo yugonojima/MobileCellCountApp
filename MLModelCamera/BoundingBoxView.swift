@@ -46,7 +46,7 @@ class BoundingBoxView: UIView {
         }
         //バウンディングボックス数の描画
         String(counts).draw(at: CGPoint(x: screenSizeWidth-80, y: screenSizeHeight-80), withAttributes: [
-            NSAttributedString.Key.foregroundColor : UIColor(red: 0.28, green: 0.53, blue: 0.75, alpha: 1.0),
+            NSAttributedString.Key.foregroundColor : UIColor(red: 239, green: 156, blue: 148, alpha: 0.8),
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 50),
                     ])
     }

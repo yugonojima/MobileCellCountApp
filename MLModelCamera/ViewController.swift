@@ -24,13 +24,13 @@ class ViewController: UIViewController {
 
     private var cropAndScaleOption: VNImageCropAndScaleOption = .scaleFit
     
-    @IBOutlet private weak var previewView: UIView!
+    @IBOutlet private weak var previewView: UIView! //@IBOutlet : storyboardと紐づけるための宣言
     @IBOutlet private weak var modelLabel: UILabel!
     @IBOutlet private weak var resultView: UIView!
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var othersLabel: UILabel!
     @IBOutlet private weak var bbView: BoundingBoxView!
-    @IBOutlet weak var cropAndScaleOptionSelector: UISegmentedControl!
+//    @IBOutlet weak var cropAndScaleOptionSelector: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +64,8 @@ class ViewController: UIViewController {
         selectModel(url: modelUrls.first!)
         
         // scaleFill
-        cropAndScaleOptionSelector.selectedSegmentIndex = 2
-        updateCropAndScaleOption()
+//        cropAndScaleOptionSelector.selectedSegmentIndex = 0 //最初に何番目の項目が選択されている状態にするか
+//        updateCropAndScaleOption()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,23 +174,23 @@ class ViewController: UIViewController {
         })
     }
 
-    private func updateCropAndScaleOption() {
-        let selectedIndex = cropAndScaleOptionSelector.selectedSegmentIndex
-        cropAndScaleOption = VNImageCropAndScaleOption(rawValue: UInt(selectedIndex))!
-    }
-    
+//    private func updateCropAndScaleOption() {
+//        let selectedIndex = cropAndScaleOptionSelector.selectedSegmentIndex
+//        cropAndScaleOption = VNImageCropAndScaleOption(rawValue: UInt(selectedIndex))!
+//    }
+//
     
     
     // MARK: - Actions
     
-    //Changeのボタンが押されると行われる描画、どこでChangeの文字を定義しているのか不明
+    //Changeのボタンが押されると行われる描画
     @IBAction func modelBtnTapped(_ sender: UIButton) {
         showActionSheet()
     }
     
-    @IBAction func cropAndScaleOptionChanged(_ sender: UISegmentedControl) {
-        updateCropAndScaleOption()
-    }
+//    @IBAction func cropAndScaleOptionChanged(_ sender: UISegmentedControl) {
+//        updateCropAndScaleOption()
+//    }
     
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

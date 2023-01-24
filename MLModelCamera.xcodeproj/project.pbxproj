@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47CD8C6A2980010E005E1074 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47CD8C692980010E005E1074 /* Pacifico-Regular.ttf */; };
 		8A243AEA20D99188005947D6 /* ModelDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A243AE920D99188005947D6 /* ModelDescriptionViewController.swift */; };
 		8A413B9120D2205F00A761EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A413B9020D2205F00A761EC /* AppDelegate.swift */; };
 		8A413B9320D2205F00A761EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A413B9220D2205F00A761EC /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47CD8C692980010E005E1074 /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		8A243AE920D99188005947D6 /* ModelDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDescriptionViewController.swift; sourceTree = "<group>"; };
 		8A413B8D20D2205F00A761EC /* MLModelCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MLModelCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A413B9020D2205F00A761EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,9 +49,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47CD8C6B298001DB005E1074 /* TextResource */ = {
+			isa = PBXGroup;
+			children = (
+				47CD8C692980010E005E1074 /* Pacifico-Regular.ttf */,
+			);
+			path = TextResource;
+			sourceTree = "<group>";
+		};
 		8A413B8420D2205F00A761EC = {
 			isa = PBXGroup;
 			children = (
+				47CD8C6B298001DB005E1074 /* TextResource */,
 				8A8DE5C820D6DEA200914B67 /* models */,
 				8A413BA220D221D500A761EC /* VideoCapture */,
 				8A413B8F20D2205F00A761EC /* MLModelCamera */,
@@ -153,6 +164,7 @@
 				8A413B9820D2206100A761EC /* Assets.xcassets in Resources */,
 				8A8DE5C920D6DEA200914B67 /* models in Resources */,
 				8A413B9620D2205F00A761EC /* Main.storyboard in Resources */,
+				47CD8C6A2980010E005E1074 /* Pacifico-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-@UIApplicationMain
+@UIApplicationMain //main関数の実行プログラムの記述を省略している　Main関数ではAppDelegateクラスを呼び出す
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -18,3 +18,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+//詳しくはhttps://qiita.com/Howasuto/items/b362991fafd8b190e260
