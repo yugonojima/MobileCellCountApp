@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
-        <scene sceneID="OHl-gJ-6Ct">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="UqE-Qj-8d6" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4kJ-4f-vZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1177" y="-50"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="8mh-9Y-h96">
             <objects>
@@ -37,8 +29,7 @@
                         <color key="backgroundColor" red="1" green="0.95635283670000004" blue="0.81465322829999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="replace" identifier="first_segue" splitViewControllerTargetIndex="1" id="DQQ-YM-iTg"/>
-                        <segue destination="BYZ-38-t0r" kind="replace" splitViewControllerTargetIndex="1" id="wdP-lt-OAy"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="first_segue" splitViewControllerTargetIndex="1" id="DQQ-YM-iTg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6BV-ZV-k7n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -217,9 +208,6 @@
             <point key="canvasLocation" x="932" y="134"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="wdP-lt-OAy"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
