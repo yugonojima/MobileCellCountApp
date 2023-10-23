@@ -37,7 +37,7 @@ class BoundingBoxView: UIView {
                 color = UIColor(hue: (CGFloat(firstLabelHash % 256) / 512.0) + 1.0, saturation: 1, brightness: 1, alpha: 1)
             }
 
-            let rect = drawBoundingBox(context: context, observation: observation, color: color)
+            let _ = drawBoundingBox(context: context, observation: observation, color: color)
             
 //            if #available(iOS 12.0, *), let recognizedObjectObservation = observation as? VNRecognizedObjectObservation {
 //                addLabel(on: rect, observation: recognizedObjectObservation, color: color)

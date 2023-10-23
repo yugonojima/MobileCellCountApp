@@ -18,8 +18,8 @@ typealias ImageBufferHandler = ((_ imageBuffer: CVPixelBuffer, _ timestamp: CMTi
 
 class VideoCapture: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
 
-    private let captureSession = AVCaptureSession()
-    private var videoDevice: AVCaptureDevice!
+    private let captureSession = AVCaptureSession() //入力ソースと出力タイプを繋いでくれる中継局のような役割を果たしてくれるクラス
+    private var videoDevice: AVCaptureDevice! //入力デバイス(カメラ、マイク等)を抽象化したクラス
     private var videoConnection: AVCaptureConnection!
     private var previewLayer: AVCaptureVideoPreviewLayer?
     

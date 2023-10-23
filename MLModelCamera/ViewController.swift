@@ -10,13 +10,14 @@ import UIKit
 import CoreML
 import Vision
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,UIGestureRecognizerDelegate{
 
     private var videoCapture: VideoCapture!
     private let serialQueue = DispatchQueue(label: "com.shu223.coremlplayground.serialqueue")
     
     private let videoSize = CGSize(width: 1280, height: 720)
     private let preferredFps: Int32 = 2
+    private var touched:Bool = false
     
     private var modelUrls: [URL]!
     private var selectedVNModel: VNCoreMLModel?
@@ -34,6 +35,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
+           
+        //UIGestureのデリゲート
+        tapGesture.delegate = self
+           
+        //viewに追加
+        self.view.addGestureRecognizer(tapGesture)
 
         let spec = VideoSpec(fps: preferredFps, size: videoSize)
         let frameInterval = 1.0 / Double(preferredFps)
@@ -41,16 +50,24 @@ class ViewController: UIViewController {
         videoCapture = VideoCapture(cameraType: .back,
                                     preferredSpec: spec,
                                     previewContainer: previewView.layer)
+    
         videoCapture.imageBufferHandler = {[unowned self] (imageBuffer, timestamp, outputBuffer) in
             let delay = CACurrentMediaTime() - timestamp.seconds
             if delay > frameInterval {
                 return
             }
-
+            
             self.serialQueue.async {
-                self.runModel(imageBuffer: imageBuffer)
+                if (self.touched == false) {
+                    self.runModel(imageBuffer: imageBuffer)
+                } else if (self.touched == true) {
+                    return
+                }
+                
             }
         }
+        
+       
         
         let modelPaths = Bundle.main.paths(forResourcesOfType: "mlmodel", inDirectory: "models")
         
@@ -62,6 +79,7 @@ class ViewController: UIViewController {
         }
         
         selectModel(url: modelUrls.first!)
+
         
         // scaleFill
 //        cropAndScaleOptionSelector.selectedSegmentIndex = 0 //最初に何番目の項目が選択されている状態にするか
@@ -139,6 +157,18 @@ class ViewController: UIViewController {
         } catch {
             print("failed to perform")
         }
+    }
+    
+    @objc func tapped(_ sender: UITapGestureRecognizer) {
+        //タップ直後に中身を実行
+                if sender.state == .ended {
+                    if (touched == false) {
+                        touched = true
+                    } else if (touched == true) {
+                        touched = false
+                    }
+                    
+                }
     }
 
     @available(iOS 12.0, *)

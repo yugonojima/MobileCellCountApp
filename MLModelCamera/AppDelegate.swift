@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain //main関数の実行プログラムの記述を省略している　Main関数ではAppDelegateクラスを呼び出す
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {//delegate = Appleの設計図を使わせてくれと頼むこと(頼む代理人を選ぶこと)
 
     var window: UIWindow?
 
